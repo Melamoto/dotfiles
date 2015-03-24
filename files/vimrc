@@ -104,8 +104,8 @@ set expandtab
 set nu
 if version >= 703
   set relativenumber
+  set fdm=syntax
 endif
-set fdm=syntax
 hi Folded ctermbg=0
 2mat ErrorMsg '\%81v.'
 
