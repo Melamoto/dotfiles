@@ -1,0 +1,19 @@
+function swap()
+{
+  local tmp=swaptmp.$$
+  ln "$1" "$tmp"
+  mv "$2" "$1"
+  mv "$tmp" "$2"
+}
+
+function cdls()
+{
+  cd "$1"
+  ls
+}
+
+alias gocrys="ssh -t crystal3 \"cd CW3 ; bash\""
+
+alias git-dry="git commit --dry-run"
+alias git-opush="git push -u origin"
+
