@@ -1,0 +1,12 @@
+[submodule "files/vim/bundle/nerdtree"]
+	path = files/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "files/vim/bundle/vim-surround"]
+	path = files/vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "files/vim/bundle/tagbar"]
+	path = files/vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "files/vim/bundle/vim-easymotion"]
+	path = files/vim/bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion

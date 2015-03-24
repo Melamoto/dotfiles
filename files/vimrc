@@ -113,5 +113,5 @@ autocmd BufNewFile,BufRead * if expand('%:e') == ''
   \ | set norelativenumber
 \ | endif
 
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backupdir=~/.vim-backup
+set directory=~/.vim-swap
