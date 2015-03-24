@@ -115,3 +115,6 @@ autocmd BufNewFile,BufRead * if expand('%:e') == ''
 
 set backupdir=~/.vim-backup
 set directory=~/.vim-swap
+
+source ~/.vimrc-specific
+

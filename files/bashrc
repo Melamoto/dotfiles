@@ -12,8 +12,9 @@ function cdls()
   ls
 }
 
-alias gocrys="ssh -t crystal3 \"cd CW3 ; bash\""
-
 alias git-dry="git commit --dry-run"
 alias git-opush="git push -u origin"
+alias git-cob="git checkout branch"
+
+source ${HOME}/.bashrc-specific
 

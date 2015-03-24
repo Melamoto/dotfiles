@@ -1,0 +1,4 @@
+# Ignore the system specific folder
+system-specific/*
+!system-specific/README.md
+
