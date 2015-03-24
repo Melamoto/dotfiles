@@ -102,15 +102,20 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set nu
-set relativenumber
+if version >= 703
+  set relativenumber
+endif
 set fdm=syntax
 hi Folded ctermbg=0
 2mat ErrorMsg '\%81v.'
 
 au BufNewFile,BufRead *.cl set syntax=c
-autocmd BufNewFile,BufRead * if expand('%:e') == ''
+autocmd BufNewFile,BufRead *
+\   if expand('%:e') == ''
   \ | set nonu
-  \ | set norelativenumber
+  \ | if version >= 703
+    \ | set norelativenumber
+  \ | endif
 \ | endif
 
 set backupdir=~/.vim-backup
