@@ -2,8 +2,14 @@
 
 # Get the name of this folder
 thisdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# Folder containing new dotfiles
+dotfiles="${thisdir}/files"
+# Folder containing old dotfiles
+olddir="${thisdir}.old"
 # Folder containing system specific files
 specificfiles="${thisdir}/system-specific"
+
+echo "Running preliminary setup..."
 
 # Initialize vim plugin submodules
 echo "Initialize vim plugin submodules..."
@@ -35,4 +41,29 @@ for sf in $(ls $specificfiles/) ; do
     fi
   fi
 done
+
+echo "Setup done."
+echo ""
+
+echo "Installing new dotfiles..."
+
+echo "Creating folder to contain old dotfiles..."
+mkdir -p $olddir
+echo "Done."
+
+for df in $(ls $dotfiles/) ; do
+  dotname=".$df"
+  sourcename="${dotfiles}/${df}"
+  destname="${HOME}/${dotname}"
+  if [ -e $destname ] ; then
+    backupname="${olddir}/${df}"
+    echo "Backing up ${destname}..."
+    mv $destname $backupname
+  fi
+  echo "Symlinking ${df}..."
+  ln -s $sourcename $destname
+  echo "Done."
+done
+
+echo "Dotfiles installed."
 
