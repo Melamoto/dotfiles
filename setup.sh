@@ -23,25 +23,6 @@ mkdir -p ~/.vim-backup
 mkdir -p ~/.vim-swap
 echo "Done."
 
-# Create empty source files for system-specific configurations if none exist
-echo "Spawning system specific config files..."
-touch ${specificfiles}/vimrc
-touch ${specificfiles}/bashrc
-echo "Done."
-
-for sf in $(ls $specificfiles/) ; do
-  if [ ! $sf == "README.md" ] ; then
-    dotname=".${sf}-specific"
-    sourcename="${specificfiles}/${sf}"
-    destname="${HOME}/${dotname}"
-    if [ ! -e $destname ] ; then
-      echo "Symlinking specific ${sf}..."
-      ln -s $sourcename $destname
-      echo "Done."
-    fi
-  fi
-done
-
 echo "Setup done."
 echo ""
 
@@ -66,4 +47,23 @@ for df in $(ls $dotfiles/) ; do
 done
 
 echo "Dotfiles installed."
+
+# Create empty source files for system-specific configurations if none exist
+echo "Spawning system specific config files..."
+touch ${specificfiles}/vimrc-specific
+touch ${specificfiles}/bashrc-specific
+echo "Done."
+
+for sf in $(ls $specificfiles/) ; do
+  if [ ! $sf == "README.md" ] ; then
+    dotname=".${sf}"
+    sourcename="${specificfiles}/${sf}"
+    destname="${HOME}/${dotname}"
+    if [ ! -e $destname ] ; then
+      echo "Symlinking specific ${sf}..."
+      ln -s $sourcename $destname
+      echo "Done."
+    fi
+  fi
+done
 
