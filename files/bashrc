@@ -16,5 +16,7 @@ alias git-dry="git commit --dry-run"
 alias git-opush="git push -u origin"
 alias git-cob="git checkout branch"
 
+alias make-new="make clean; make"
+
 source ${HOME}/.bashrc-specific
 
