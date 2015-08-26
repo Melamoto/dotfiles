@@ -55,7 +55,11 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  colorscheme base16-mocha
+  if has("gui_running")
+    colorscheme base16-default
+  else
+    colorscheme jellybeans
+  endif
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -123,5 +127,11 @@ autocmd BufNewFile,BufRead *
 set backupdir=~/.vim-backup
 set directory=~/.vim-swap
 
+" Key bindings
+let mapleader = "\<Space>"
+
+nnoremap <Leader>s :w<CR>
+
+source ~/.vim/ycm-generator.vim
 source ~/.vimrc-specific
 
